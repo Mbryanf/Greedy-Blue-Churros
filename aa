@@ -1,0 +1,198 @@
+import React from "react";
+import { View, SafeAreaView, StatusBar, ScrollView, Text, Image, TouchableOpacity, Linking } from 'react-native';
+import { AppBar, HStack, IconButton } from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+
+export default function App() {
+    // Imagem que deseja usar como título da AppBar
+    const appBarImage = require('./appbar_image.png'); // Substitua pelo caminho da sua imagem
+  
+    // Função para abrir o link externo
+    const abrirLinkExterno = () => {
+      Linking.openURL("https://viverdeassistencia.com.br/blog/");
+    };
+  
+    return (
+      <SafeAreaView style={{ flex: 1, paddingTop: StatusBar.currentHeight }}>
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+        <View style={{ flex: 1 }}>
+          <AppBar
+            title={
+              <Image
+                source={appBarImage}
+                style={{ flex: 1, width: null, height: null }}
+                resizeMode="contain"
+              />
+            }
+            leading={(props) => (
+              <IconButton icon={(props) => <Icon name="menu" {...props} />} {...props} />
+            )}
+            trailing={(props) => (
+              <HStack>
+                <IconButton
+                  icon={(props) => <Icon name="magnify" {...props} />}
+                  {...props}
+                />
+                <IconButton
+                  icon={(props) => <Icon name="dots-vertical" {...props} />}
+                  {...props}
+                />
+              </HStack>
+            )}
+            style={{ backgroundColor: "#0CC1EE" }}
+          />
+  
+          {/* Seção "Estude gratuitamente" */}
+          <View style={{ padding: 20, alignItems: 'center', marginTop: 10 }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Estude gratuitamente</Text>
+            <Text style={{ textAlign: 'center', marginTop: 10 }}>
+              Nós oferecemos treinamentos tanto presenciais quanto on-line para aqueles que desejam adquirir habilidades em manutenção de celulares, sejam iniciantes ou já experientes.
+            </Text>
+            <Text style={{ textAlign: 'center', marginTop: 10 }}>
+              Além disso, disponibilizamos cursos avançados para aqueles que buscam especialização em assistência técnica.
+            </Text>
+          </View>
+  
+          {/* Título "Nossos Cursos" */}
+          <View style={{ alignItems: 'center', marginTop: 10 }}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', textAlign: 'center' }}>Nossos Cursos</Text>
+          </View>
+  
+          {/* Scroll frame com imagens e títulos */}
+          <ScrollView horizontal={true} style={{ marginTop: 10, paddingBottom: 0, flexGrow: 0 }} showsHorizontalScrollIndicator={false}>
+            <CourseCard
+              title="Curso Iniciante Mobile"
+              imageSource={require('./image1.png')}
+            />
+            <CourseCard
+              title="Curso Intermediário Mobile"
+              imageSource={require('./image2.png')}
+            />
+            <CourseCard
+              title="Curso de Software Mobile"
+              imageSource={require('./image3.png')}
+            />
+          </ScrollView>
+  
+          {/* Botão "Saiba mais" que redireciona para o link */}
+          <TouchableOpacity onPress={abrirLinkExterno} style={{ backgroundColor: '#00FF4C', padding: 20, borderRadius: 30, alignSelf: 'center', width: 250, marginBottom: 20, position: 'absolute', bottom: 20 }}>
+            <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Saiba mais</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+// Crie um componente para renderizar o cabeçalho da AppBar
+const AppBarHeader = ({ navigation, title }) => {
+  return (
+    <AppBar
+      title={
+        <Image
+          source={appBarImage}
+          style={{ flex: 1, width: null, height: null }}
+          resizeMode="contain"
+        />
+      }
+      leading={(props) => (
+        <IconButton icon={(props) => <Icon name="menu" {...props} />} {...props} onPress={() => navigation.openDrawer()} />
+      )}
+      trailing={(props) => (
+        <HStack>
+          <IconButton
+            icon={(props) => <Icon name="magnify" {...props} />}
+            {...props}
+          />
+          <IconButton
+            icon={(props) => <Icon name="dots-vertical" {...props} />}
+            {...props}
+          />
+        </HStack>
+      )}
+      style={{ backgroundColor: "#0CC1EE" }}
+    />
+  );
+};
+
+// Crie as telas para cada curso e a tela de contato
+function CursoInicianteMobileScreen({ navigation }) {
+  return (
+    <View>
+      <AppBarHeader navigation={navigation} title="Curso Iniciante Mobile" />
+      <ScrollView>
+        <Image source={require('./image1.png')} style={{ width: 200, height: 200 }} />
+        {/* Adicione o conteúdo da tela do curso aqui */}
+      </ScrollView>
+    </View>
+  );
+}
+
+function CursoIntermediarioMobileScreen({ navigation }) {
+  return (
+    <View>
+      <AppBarHeader navigation={navigation} title="Curso Intermediário Mobile" />
+      <ScrollView>
+        <Image source={require('./image2.png')} style={{ width: 200, height: 200 }} />
+        {/* Adicione o conteúdo da tela do curso aqui */}
+      </ScrollView>
+    </View>
+  );
+}
+
+function CursoSoftwareMobileScreen({ navigation }) {
+  return (
+    <View>
+      <AppBarHeader navigation={navigation} title="Curso de Software Mobile" />
+      <ScrollView>
+        <Image source={require('./image3.png')} style={{ width: 200, height: 200 }} />
+        {/* Adicione o conteúdo da tela do curso aqui */}
+      </ScrollView>
+    </View>
+  );
+}
+
+function ContatoScreen({ navigation }) {
+  return (
+    <View>
+      <AppBarHeader navigation={navigation} title="Contato" />
+      <ScrollView>
+        <Text>Tela de Contato</Text>
+        {/* Adicione o conteúdo da tela de contato aqui */}
+      </ScrollView>
+    </View>
+  );
+}
+
+// Configura a navegação em gaveta
+const Drawer = createDrawerNavigator();
+
+// Configura a navegação em pilha para as telas dos cursos e de contato
+const Stack = createStackNavigator();
+
+// Componente que envolve a navegação em pilha e permite manter o cabeçalho da AppBar
+const CoursesStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Curso Iniciante Mobile" component={CursoInicianteMobileScreen} />
+      <Stack.Screen name="Curso Intermediário Mobile" component={CursoIntermediarioMobileScreen} />
+      <Stack.Screen name="Curso de Software Mobile" component={CursoSoftwareMobileScreen} />
+    </Stack.Navigator>
+  );
+};
+
+export default function App() {
+  // ... (código anterior)
+
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Cursos" component={CoursesStack} />
+        <Drawer.Screen name="Contato" component={ContatoScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
