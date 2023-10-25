@@ -47,15 +47,15 @@ export default function HomeScreen() {
   };
 
   const appBarProps = {
-    style: { backgroundColor: "#0CC1EE", height: 60 },
+    style: { backgroundColor: "#0CC1EE", height: 80 },
     title: (
-      <View>
+      <View style={{ alignItems: 'center', paddingTop: 100, flexDirection: 'row-reverse', justifyContent: 'space-between'}}>
         <Image
-          source={require('../img/appbar_image.png')} // Substitua pelo caminho da sua imagem
-          style={{ flex: 1, width: null, height: null, right: 29.5, position: 'relative', top: 6 }}
+          source={require('../img/appbar_image.png')}
+          style={{ width: 200, height: 50, resizeMode: 'contain', marginRight: 80 }}
           resizeMode="contain"
         />
-        <IconButton icon={(props) => <Icon name="arrow-left" {...props} style={{ marginTop: 25 }} />} onPress={handleVoltarClick} />
+        <IconButton icon={(props) => <Icon name="arrow-left" {...props} style={{ marginLeft: 10 }} />} onPress={handleVoltarClick} />
       </View>
     ),
   };

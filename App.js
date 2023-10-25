@@ -133,7 +133,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Contato" component={ContatoScreen} />
+        <Stack.Screen name="Contato" component={ContatoScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
