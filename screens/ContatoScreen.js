@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Linking } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 function formatTelefone(Telefone) {
   const cleanedNumeroTelefone = Telefone.replace(/\D/g, '');
-  const formattedNumeroTelefone = `(${cleanedNumeroTelefone.substring(0, 2)}) ${cleanedNumeroTelefone.substring(2, 6)} - ${cleanedNumeroTelefone.substring(6, 10)}`;
+  const formattedNumeroTelefone = `(${cleanedNumeroTelefone.substring(0, 2)}) ${cleanedNumeroTelefone.substring(2, 7)} - ${cleanedNumeroTelefone.substring(7, 11)}`;
   return formattedNumeroTelefone;
 }
 
@@ -42,8 +42,8 @@ export default function HomeScreen() {
   }
 
   const handleInscricaoPress = () => {
-    // Implemente a lógica para processar a inscrição aqui
-    // Você pode acessar os valores dos campos com nome, email, celular e dataNascimento
+    const mensagem = `Nome: ${nome}%0AEmail: ${email}%0ACelular: ${celular}%0AData de Nascimento: ${dataNascimento}`;
+    Linking.openURL(`https://api.whatsapp.com/send?phone=+5561996951055&text=${mensagem}`);
   };
 
   const appBarProps = {
@@ -109,7 +109,7 @@ export default function HomeScreen() {
             paddingLeft: 10,
             marginBottom: 16,
           }}
-          placeholder="Ex: (XX) XXXX - XXXX"
+          placeholder="Ex: (XX) XXXXX - XXXX"
           onChangeText={(text) => {
             // Formata o número de telefone enquanto o usuário digita
             const formattedPhoneNumber = formatTelefone(text);
