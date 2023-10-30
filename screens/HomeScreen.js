@@ -52,7 +52,6 @@ export default function HomeScreen({ navigation }) {
       headerRight: () => (
         <View style={{ flexDirection: 'row' }}>
           <IconButton icon={(props) => <Icon name="magnify" {...props} />} />
-          <IconButton icon={(props) => <Icon name="dots-vertical" {...props} />} />
         </View>
       ),
       headerStyle: {
@@ -95,21 +94,22 @@ export default function HomeScreen({ navigation }) {
   };
 
   return (
+    
     <View style={{ flex: 1 }}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-
+    <ScrollView>
       <View style={{ padding: 30, alignItems: 'center' }}>
-        <Text style={{ fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}>Estude gratuitamente</Text>
-        <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 20 }}>
+        <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}>Estude gratuitamente</Text>
+        <Text style={{ fontSize: 25, textAlign: 'center', marginTop: 20 }}>
           Nós oferecemos treinamentos tanto presenciais quanto on-line para aqueles que desejam adquirir habilidades em manutenção de celulares, sejam iniciantes ou já experientes.
         </Text>
-        <Text style={{ fontSize: 20, textAlign: 'center', marginTop: 20 }}>
+        <Text style={{ fontSize: 25, textAlign: 'center', marginTop: 20}}>
           Além disso, disponibilizamos cursos avançados para aqueles que buscam especialização em assistência técnica.
         </Text>
       </View>
 
       <View style={{ alignItems: 'center', marginTop: 20 }}>
-        <Text style={{ fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}>Nossos Cursos</Text>
+        <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}>Nossos Cursos</Text>
         <Text style={{ textAlign: 'center', marginTop: 10 }}>Arraste para o lado para ver os próximos cursos</Text>
       </View>
 
@@ -120,8 +120,9 @@ export default function HomeScreen({ navigation }) {
         itemWidth={300}
         renderItem={renderCardItem}
       />
+    </ScrollView>
 
-      <View style={{ position: 'absolute', bottom: 0, width: '100%', alignItems: 'center', paddingBottom: 20 }}>
+      <View style={{ position: 'flex', bottom: 0, alignItems: 'center', marginTop: 5 }}>
         <TouchableOpacity onPress={abrirLinkExterno} style={{ backgroundColor: '#00FF4C', padding: 20, borderRadius: 30, width: 250, marginBottom: 20 }}>
           <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Saiba mais</Text>
         </TouchableOpacity>
@@ -141,5 +142,7 @@ export default function HomeScreen({ navigation }) {
         </View>
       </Modal>
     </View>
+
+    
   );
 }
