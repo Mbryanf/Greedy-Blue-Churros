@@ -43,7 +43,7 @@ export default function HomeScreen() {
 
   const handleInscricaoPress = () => {
     const mensagem = `Nome: ${nome}%0AEmail: ${email}%0ACelular: ${celular}%0AData de Nascimento: ${dataNascimento}`;
-    Linking.openURL(`https://api.whatsapp.com/send?phone=+5561996951055&text=${mensagem}`);
+    Linking.openURL(`https://api.whatsapp.com/send?phone=+556133515476&text=${mensagem}`);
   };
 
   const appBarProps = {
