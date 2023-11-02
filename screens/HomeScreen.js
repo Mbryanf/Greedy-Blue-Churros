@@ -4,14 +4,16 @@ import { AppBar, IconButton } from '@react-native-material/core';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import Modal from 'react-native-modal';
 import Carousel from 'react-native-snap-carousel';
+import { setStatusBarHidden } from "expo-status-bar";
 
 const CourseCard = ({ title, imageSource, navigation, screenName }) => (
   <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
     <View style={{
-      margin: 15,
+      margin: 5,
       borderRadius: 10,
       overflow: 'hidden',
       alignItems: 'center',
+      resizeMode: 'cover'
     }}>
       <Image
         source={imageSource}
@@ -19,7 +21,7 @@ const CourseCard = ({ title, imageSource, navigation, screenName }) => (
           width: 300,
           height: 300,
           marginBottom: 15,
-          borderRadius: 10,
+          borderRadius: 10
         }}
       />
       <Text style={{ textAlign: 'center', maxWidth: 180 }}>{title}</Text>
@@ -63,19 +65,19 @@ export default function HomeScreen({ navigation }) {
   const carouselItems = [
     {
       title: 'Curso Iniciante Mobile',
-      imageSource: require('../img/image1.png'),
+      imageSource: require('../img/card1.png'),
       navigation: navigation,
       screenName: 'CursoIniciante',
     },
     {
       title: 'Curso Intermediário Mobile',
-      imageSource: require('../img/image2.png'),
+      imageSource: require('../img/image3.png'),
       navigation: navigation,
       screenName: 'CursoIntermediario',
     },
     {
       title: 'Curso de Software Mobile',
-      imageSource: require('../img/image3.png'),
+      imageSource: require('../img/image2.png'),
       navigation: navigation,
       screenName: 'CursoSoftware',
     },
@@ -97,7 +99,7 @@ export default function HomeScreen({ navigation }) {
     
     <View style={{ flex: 1 }}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false} >
       <View style={{ padding: 30, alignItems: 'center' }}>
         <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}>Estude gratuitamente</Text>
         <Text style={{ fontSize: 25, textAlign: 'center', marginTop: 20 }}>

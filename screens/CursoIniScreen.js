@@ -11,7 +11,7 @@ const CursoIniScreen = ({ navigation }) => {
   };
 
   const handleInscricaoClick = () => {
-    Linking.openURL('https://api.whatsapp.com/send?phone=+5561996951055&text=Quero%20me%20inscrever%20no%20curso.');
+    navigation.navigate('Contato');
   };
 
   return (
@@ -36,7 +36,10 @@ const CursoIniScreen = ({ navigation }) => {
       />
 
       {/* Texto descritivo do curso em um ScrollView */}
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <Text style={styles.courseDescription}>
+        O nosso curso presencial é para você que tem pouca ou nenhuma experiencia na área de manutenção e deseja aprender para montar uma loja ou trabalhar em uma assistência
+        </Text>
         <Text style={styles.courseDescription}>
         Montar uma assistência técnica em smartphone é uma excelente oportunidade de negócio pra quem tem o sonho de montar o seu próprio negócio ou quer uma profissão rentável isso  porque nenhuma atividade humana hoje está isenta do uso do smartphone e esses pequenos aparelhos são muito fáceis de estragar.  
         </Text>
@@ -61,6 +64,7 @@ const CursoIniScreen = ({ navigation }) => {
           title="Inscrever-se"
           onPress={handleInscricaoClick}
         />
+
       </View>
     </View>
   );
@@ -88,9 +92,11 @@ const styles = StyleSheet.create({
   courseDescription: {
     padding: 20,
     textAlign: 'center',
+    fontSize:25
   },
   buttonContainer: {
-    margin: 20,
+    margin: 10,
+    paddingBottom: 10
   },
   magnify: {
     display: 'none',
