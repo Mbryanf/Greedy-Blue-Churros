@@ -41,24 +41,19 @@ export default function HomeScreen({ navigation }) {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       title: (
-        <View style={{ alignItems: 'center' }}>
+        <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
           <Image
             source={appBarImage}
-            style={{ width: 200, height: 40, resizeMode: 'contain' }}
+            style={{ width: 200, height: 40, resizeMode: 'contain', justifyContent: 'space-between' }}
           />
         </View>
       ),
       headerLeft: () => (
         <IconButton icon={(props) => <Icon name="menu" {...props} />} onPress={() => setIsModalVisible(true)} />
       ),
-      headerRight: () => (
-        <View style={{ flexDirection: 'row' }}>
-          <IconButton icon={(props) => <Icon name="magnify" {...props} />} />
-        </View>
-      ),
       headerStyle: {
-        backgroundColor: "#0CC1EE",
-      },
+        backgroundColor: "#0CC1EE"
+      },  
     });
   }, [navigation]);
 
@@ -131,15 +126,15 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <Modal isVisible={isModalVisible} onBackdropPress={() => setIsModalVisible(false)}>
-        <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10 }}>
+        <View style={{ backgroundColor: '#0CC1EE', padding: 5, borderRadius: 15, alignItems: 'center'}}>
           <TouchableOpacity
             onPress={() => {
               setIsModalVisible(false);
               navigation.navigate('Contato');
             }}
-            style={{ paddingVertical: 10 }}
+            style={{ paddingVertical: 5 }}
           >
-            <Text>Contato</Text>
+            <Text style={{ color:'#FFFF', fontWeight: 'bold', fontSize: 20 }}>Contato</Text>
           </TouchableOpacity>
         </View>
       </Modal>
