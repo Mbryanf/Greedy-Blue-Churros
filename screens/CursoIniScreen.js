@@ -38,22 +38,37 @@ const CursoIniScreen = ({ navigation }) => {
       {/* Texto descritivo do curso em um ScrollView */}
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <Text style={styles.courseDescription}>
-        O nosso curso presencial é para você que tem pouca ou nenhuma experiencia na área de manutenção e deseja aprender para montar uma loja ou trabalhar em uma assistência
+          O nosso curso presencial é para você que tem pouca ou nenhuma experiencia na área de manutenção e deseja aprender para montar uma loja ou trabalhar em uma assistência
+        </Text>
+        <Text style={styles.courseTopic}>
+          Motivos para fazer o curso iniciante de manunteção
         </Text>
         <Text style={styles.courseDescription}>
-        Montar uma assistência técnica em smartphone é uma excelente oportunidade de negócio pra quem tem o sonho de montar o seu próprio negócio ou quer uma profissão rentável isso  porque nenhuma atividade humana hoje está isenta do uso do smartphone e esses pequenos aparelhos são muito fáceis de estragar.  
+          Montar uma assistência técnica em smartphone é uma excelente oportunidade de negócio pra quem tem o sonho de montar o seu próprio negócio ou quer uma profissão rentável isso  porque nenhuma atividade humana hoje está isenta do uso do smartphone e esses pequenos aparelhos são muito fáceis de estragar.  
+        </Text>
+        <Text style={styles.courseTopic}>
+          Baixo investimento inicial e prazo curto de retorno do investimento
         </Text>
         <Text style={styles.courseDescription}>
-        Baixo investimento inicial e prazo curto de retorno do investimento: hoje para se montar uma assistência técnica em smartphone o maior ativo é o conhecimento técnico e prestar serviços sempre foi  um bom negócio além disso o prazo médio para retorno total do investimento é muito curto em relação a outros negócios.
+          Hoje para se montar uma assistência técnica em smartphone o maior ativo é o conhecimento técnico e prestar serviços sempre foi  um bom negócio além disso o prazo médio para retorno total do investimento é muito curto em relação a outros negócios.
+        </Text>
+        <Text style={styles.courseTopic}>
+          Alta demanda
         </Text>
         <Text style= {styles.courseDescription}>
-        Alta demanda: Com a popularização dos smartphones e a grande quantidade de pessoas que possui um dispositivo móvel a procura por serviços de assistência técnica tem aumentado consideravelmente isso faz com que um profissional bem qualificado tenha grande potencial de sucesso.
+          Com a popularização dos smartphones e a grande quantidade de pessoas que possui um dispositivo móvel a procura por serviços de assistência técnica tem aumentado consideravelmente isso faz com que um profissional bem qualificado tenha grande potencial de sucesso.
+        </Text>
+        <Text style={styles.courseTopic}>
+          Fidelização
         </Text>
         <Text style= {styles.courseDescription}>
-        Fidelização: quando uma pessoa encontra um serviço de qualidade em assistência técnica para o seu smartphone é muito provável que ela retorne em caso de necessidade e ainda indique para outras pessoas gerando assim uma rede de clientes fiéis.
+          Quando uma pessoa encontra um serviço de qualidade em assistência técnica para o seu smartphone é muito provável que ela retorne em caso de necessidade e ainda indique para outras pessoas gerando assim uma rede de clientes fiéis.
+        </Text>
+        <Text style={styles.courseTopic}>
+          Margem de lucro e diversificação de serviços
         </Text>
         <Text style= {styles.courseDescription}>
-        Margem de lucro e diversificação de serviços: a margem de lucro em serviços de assistência técnica é bastante atrativa podendo gerar uma boa rentabilidade e além disso a possibilidade de venda de acessórios e produtos complementares aumentam o faturamento.
+          A margem de lucro em serviços de assistência técnica é bastante atrativa podendo gerar uma boa rentabilidade e além disso a possibilidade de venda de acessórios e produtos complementares aumentam o faturamento.
         
         </Text>
       </ScrollView>
@@ -89,10 +104,18 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  courseDescription: {
-    padding: 20,
+  courseTopic: {
+    paddingTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     textAlign: 'center',
-    fontSize:25
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+  courseDescription: {
+    padding: 15,
+    textAlign: 'center',
+    fontSize:20
   },
   buttonContainer: {
     margin: 10,
