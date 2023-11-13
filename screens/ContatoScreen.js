@@ -7,6 +7,7 @@ import { AppBar, IconButton } from "@react-native-material/core";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { SelectList } from "react-native-dropdown-select-list";
+import { SelectList } from 'react-native-dropdown-select-list'
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,12 @@ export default function HomeScreen() {
   const [celular, setCelular] = useState('');
   const [dataNascimento, setDataNascimento] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [curso, setCurso] = useState("");
+  const [curso, setCurso] = React.useState("");
+  const data = [
+    {key:'1', value:'Curso Iniciante mobile', disabled:true},
+    {key:'2', value:'Curso Intermediário Mobile'},
+    {key:'3', value:'Curso de Software Mobile'},
+  ]
 
   const handleVoltarClick = () => {
     navigation.goBack();
@@ -175,6 +181,15 @@ export default function HomeScreen() {
           data={dataSelectList}
           save="value"
         />
+
+        <Text>Curso</Text>
+        <SelectList
+        setSelected={(val) => setSelected(val)} 
+        data={data} 
+        save="value"
+    />
+          
+        
 
         <TouchableOpacity
           style={{
