@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, Linking, ScrollView, Alert } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -40,7 +40,22 @@ export default function HomeScreen() {
   };
 
   const handleInscricaoPress = () => {
-    const mensagem = `Olá! Meu nome é ${nome}, gostaria de mais informações sobre o ${curso} e inscrição.  `;
+    Alert.alert(
+      'Confirmação',
+      `Olá ${nome}! Você está sendo redirecionado para o WhatsApp para mais informações sobre a inscrição. \n\nDeseja Continuar?`,
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        { text: 'Continuar', onPress: () => abrirWhatsApp() },
+      ],
+      { cancelable: false }
+    );
+  };
+
+  const abrirWhatsApp = () => {
+    const mensagem = `Olá! Meu nome é ${nome}, gostaria de mais informações sobre o ${curso} e inscrição.`;
     Linking.openURL(`https://api.whatsapp.com/send?phone=+556133515476&text=${mensagem}`);
   };
 
@@ -116,8 +131,7 @@ export default function HomeScreen() {
         />
       </ScrollView>
 
-      <View
-      style= {styles.scrollbtn}>
+      <View style={styles.scrollbtn}>
         <TouchableOpacity
           style={styles.button}
           onPress={handleInscricaoPress}
@@ -146,16 +160,15 @@ const styles = {
     borderRadius: 30,
     alignItems: 'center',
     shadowColor: 'rgba(0, 0, 0, 5)',
-     shadowOffset: { width: 0, height: 4 }, 
+    shadowOffset: { width: 0, height: 4 },
     shadowRadius: 6,
-     shadowOpacity: 1,
-     elevation: 5,
+    shadowOpacity: 1,
+    elevation: 5,
   },
   scrollbtn: {
-    position:'flex',
+    position: 'flex',
     bottom: 1,
     paddingTop: 10,
-    margin:20,
-
+    margin: 20,
   }
 };
