@@ -65,12 +65,12 @@ export default function HomeScreen() {
       <AppBar {...appBarProps} />
 
       {/* Conteúdo da página */}
-      <View style={{ padding: 16 }}>
-        <Text>Nome:</Text>
+      <View style={{ padding: 20, paddingTop: 25}}>
+        <Text style={{fontSize: 20, paddingBottom: 5}}>Nome:</Text>
         <TextInput
           style={{
             width: 365,
-            height: 40,
+            height: 50,
             borderRadius: 100,
             borderWidth: 1,
             borderColor: 'gray',
@@ -82,11 +82,11 @@ export default function HomeScreen() {
           value={nome}
         />
 
-        <Text>Email:</Text>
+        <Text style={{fontSize: 20, paddingBottom: 5}}>Email:</Text>
         <TextInput
           style={{
             width: 365,
-            height: 40,
+            height: 50,
             borderRadius: 100,
             borderWidth: 1,
             borderColor: 'gray',
@@ -98,11 +98,11 @@ export default function HomeScreen() {
           value={email}
         />
 
-        <Text>Celular:</Text>
+        <Text style={{fontSize: 20, paddingBottom: 5}}>Celular:</Text>
         <TextInput
           style={{
             width: 365,
-            height: 40,
+            height: 50,
             borderRadius: 100,
             borderWidth: 1,
             borderColor: 'gray',
@@ -118,11 +118,11 @@ export default function HomeScreen() {
           value={celular}
         />
 
-        <Text>Data de Nascimento:</Text>
+        <Text style={{fontSize: 20, paddingBottom: 5}}>Data de Nascimento:</Text>
         <TextInput
           style={{
             width: 365,
-            height: 40,
+            height: 50,
             borderRadius: 100,
             borderWidth: 1,
             borderColor: 'gray',
@@ -141,7 +141,7 @@ export default function HomeScreen() {
         <TouchableOpacity
           style={{
             backgroundColor: "rgb(13, 192, 239)",
-            paddingVertical: 10,
+            paddingVertical: 15,
             paddingHorizontal: 125,
             borderRadius: 30,
             alignSelf: "center",
@@ -149,7 +149,7 @@ export default function HomeScreen() {
           }}
           onPress={handleInscricaoPress}
         >
-          <Text style={{ color: "white", textAlign: "center" }}>Inscreva-se</Text>
+          <Text style={{ color: "white", textAlign: "center", fontSize: 20, fontWeight: 'bold' }}>Inscreva-se</Text>
         </TouchableOpacity>
       </View>
     </View>

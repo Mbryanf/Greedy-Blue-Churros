@@ -41,28 +41,43 @@ const CursoInterScreen = ({ navigation }) => {
         Esse curso é indicado para o técnico que já faz manutenção básica e  não sabe  resolver defeitos  que exigem uma análise mais detalhada
         do circuito elétrico; Manuseio de ferramentas de bancada e troca de CI's
         </Text>
+        <Text style={styles.courseTopic}>
+          Aprofundamento de conhecimentos técnicos
+        </Text>
         <Text style={styles.courseDescription}>
-        Aprofundamento de conhecimentos técnicos: O curso intermediário de manutenção de smartphones vai além dos conceitos básicos,
+          O curso intermediário de manutenção de smartphones vai além dos conceitos básicos,
         proporcionando uma compreensão mais aprofundada dos componentes, circuitos e sistemas do aparelho. Isso permite a identificação
         e resolução de problemas mais complexos, preparando os alunos para lidar com situações desafiadoras.
         </Text>
+        <Text style={styles.courseTopic}>
+          Atualização sobre novas tecnologias e tendências
+        </Text>
         <Text style={styles.courseDescription}>
-        Atualização sobre novas tecnologias e tendências: Com a rápida evolução da tecnologia, smartphones estão sempre recebendo atualizações
+          Com a rápida evolução da tecnologia, smartphones estão sempre recebendo atualizações
         e novos recursos. Um curso intermediário oferece informações atualizadas sobre os últimos avanços, novos modelos e as tendências da indústria,
         capacitando os alunos a lidar com as inovações mais recentes.
         </Text>
+        <Text style={styles.courseTopic}>
+          Habilidades especializadas em reparos avançados
+        </Text>
         <Text style= {styles.courseDescription}>
-        Habilidades especializadas em reparos avançados: Ao passar por um curso intermediário, os alunos adquirem habilidades mais avançadas em reparos de
+          Ao passar por um curso intermediário, os alunos adquirem habilidades mais avançadas em reparos de
         hardware e software. Isso inclui soldagem, substituição de componentes específicos, diagnóstico de problemas mais complexos, e até mesmo a recuperação
         de dados em situações mais difíceis.
         </Text>
+        <Text style={styles.courseTopic}>
+          Potencial de carreira e empreendedorismo
+        </Text>
         <Text style= {styles.courseDescription}>
-        Potencial de carreira e empreendedorismo: Com conhecimentos mais profundos, os formados no curso intermediário podem explorar oportunidades de trabalho em 
+          Com conhecimentos mais profundos, os formados no curso intermediário podem explorar oportunidades de trabalho em 
         empresas de assistência técnica, lojas de eletrônicos ou até mesmo iniciar seus próprios negócios de reparo de smartphones. Esse tipo de habilidade é altamente 
         valorizado no mercado.
         </Text>
+        <Text style={styles.courseTopic}>
+          Resolução de problemas e economia pessoal
+        </Text>
         <Text style= {styles.courseDescription}>
-        Resolução de problemas e economia pessoal: Ao compreender melhor como os smartphones funcionam, os alunos do curso intermediário podem resolver problemas em seus próprios 
+          Ao compreender melhor como os smartphones funcionam, os alunos do curso intermediário podem resolver problemas em seus próprios 
         dispositivos, economizando tempo e dinheiro com reparos. Isso promove autonomia e evita depender exclusivamente de serviços técnicos externos.
         </Text>
       </ScrollView>
@@ -98,10 +113,18 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  courseDescription: {
-    padding: 20,
+  courseTopic: {
+    paddingTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     textAlign: 'center',
-    fontSize:25
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+  courseDescription: {
+    padding: 15,
+    textAlign: 'center',
+    fontSize:20
   },
   buttonContainer: {
     margin: 10,

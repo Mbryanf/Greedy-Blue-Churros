@@ -90,9 +90,10 @@ export default function HomeScreen({ navigation }) {
     );
   };
 
+
   return (
     
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: 'transparent'}}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
     <ScrollView showsVerticalScrollIndicator={false} >
       <View style={{ padding: 30, alignItems: 'center' }}>
@@ -119,22 +120,22 @@ export default function HomeScreen({ navigation }) {
       />
     </ScrollView>
 
-      <View style={{ position: 'flex', bottom: 0, alignItems: 'center', marginTop: 5 }}>
-        <TouchableOpacity onPress={abrirLinkExterno} style={{ backgroundColor: '#00FF4C', padding: 20, borderRadius: 30, width: 250, marginBottom: 20 }}>
-          <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Saiba mais</Text>
+      <View style={{ position: 'flex', bottom: 1, alignItems: 'center', paddingTop: 10}}>
+        <TouchableOpacity onPress={abrirLinkExterno} style={{ backgroundColor: '#00FF4C', padding: 15, borderRadius: 30, width: 250, marginBottom: 20, shadowColor: 'rgba(0, 0, 0, 5)', shadowOffset: { width: 0, height: 4 },shadowRadius: 6, shadowOpacity: 1, elevation: 5,  }}>
+          <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>Saiba mais</Text>
         </TouchableOpacity>
       </View>
 
       <Modal isVisible={isModalVisible} onBackdropPress={() => setIsModalVisible(false)}>
-        <View style={{ backgroundColor: '#0CC1EE', padding: 5, borderRadius: 15, alignItems: 'center'}}>
+        <View style={{padding: 10, borderRadius: 10, backgroundColor: "#0CC1EE", alignItems: 'center'}}>
           <TouchableOpacity
             onPress={() => {
               setIsModalVisible(false);
               navigation.navigate('Contato');
             }}
-            style={{ paddingVertical: 5 }}
+            style={{ paddingVertical: 5}}
           >
-            <Text style={{ color:'#FFFF', fontWeight: 'bold', fontSize: 20 }}>Contato</Text>
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold'}}>Contato</Text>
           </TouchableOpacity>
         </View>
       </Modal>
