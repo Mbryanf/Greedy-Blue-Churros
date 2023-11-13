@@ -30,6 +30,7 @@ export function AppNavigator() {
 export default function HomeScreen() {
   const navigation = useNavigation();
   const [nome, setNome] = useState('');
+  const [sobrenome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
@@ -87,9 +88,17 @@ export default function HomeScreen() {
         <Text>Nome:</Text>
         <TextInput
           style={styles.input}
-          placeholder="Ex: Mark Bryan"
+          placeholder="Ex: Mark"
           onChangeText={setNome}
           value={nome}
+        />
+
+        <Text>Sobrenome:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ex: Bryan"
+          onChangeText={setSobrenome}
+          value={sobrenome}
         />
 
         <Text>Email:</Text>
@@ -145,7 +154,7 @@ export default function HomeScreen() {
 
 const styles = {
   input: {
-    width: 380,
+    alignSelf: 'stretch',
     height: 40,
     borderRadius: 10,
     borderWidth: 1,
