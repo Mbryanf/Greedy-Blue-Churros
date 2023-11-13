@@ -127,25 +127,15 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <Modal isVisible={isModalVisible} onBackdropPress={() => setIsModalVisible(false)}>
-<<<<<<< Updated upstream
-        <View style={{ backgroundColor: '#0CC1EE', padding: 5, borderRadius: 15, alignItems: 'center'}}>
-=======
         <View style={{padding: 10, borderRadius: 10, backgroundColor: "#0CC1EE", alignItems: 'center'}}>
->>>>>>> Stashed changes
           <TouchableOpacity
             onPress={() => {
               setIsModalVisible(false);
               navigation.navigate('Contato');
             }}
-<<<<<<< Updated upstream
-            style={{ paddingVertical: 5 }}
-          >
-            <Text style={{ color:'#FFFF', fontWeight: 'bold', fontSize: 20 }}>Contato</Text>
-=======
             style={{ paddingVertical: 5}}
           >
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold'}}>Contato</Text>
->>>>>>> Stashed changes
           </TouchableOpacity>
         </View>
       </Modal>
