@@ -1834,6 +1834,13 @@
     "prompts" "^2.4.0"
     "semver" "^7.5.2"
 
+"@react-native-community/datetimepicker@>=6.7.0":
+  "integrity" "sha512-g66Q2Kd9Uw3eRL7kkrTsGhi+eXxNoPDRFYH6z78sZQuYjPkUQgJDDMUYgBmaBsQx/fKMtemPrCj1ulGmyi0OSw=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/datetimepicker/-/datetimepicker-7.6.1.tgz"
+  "version" "7.6.1"
+  dependencies:
+    "invariant" "^2.2.4"
+
 "@react-native-material/core@*":
   "integrity" "sha512-N5d/zKrmL3+fVyWsc/jFRxsDl59N5t3tYx9RlxhV04tQlcFKo9UlyBqCWDZFlxrkLrq3JY5zTRCMJAM3yvOz5w=="
   "resolved" "https://registry.npmjs.org/@react-native-material/core/-/core-1.3.7.tgz"
@@ -5493,6 +5500,18 @@
   dependencies:
     "prop-types" "^15.7.2"
 
+"react-native-datepicker-modal@^1.3.0":
+  "integrity" "sha512-VUda9oszVgwhJ0q9wRULcxm+e7fb3pZmfYCqNY54C7KmESBXV6IQCeFG/+05Lw7IocW4PxUmFdXovHEYKS5Etw=="
+  "resolved" "https://registry.npmjs.org/react-native-datepicker-modal/-/react-native-datepicker-modal-1.3.0.tgz"
+  "version" "1.3.0"
+  dependencies:
+    "prop-types" "^15.6.2"
+
+"react-native-dropdown-select-list@^2.0.5":
+  "integrity" "sha512-TepbcagQVUMB6nLuIlVU2ghRpQHAECOeZWe8K04ymW6NqbKbxuczZSDFfdCiABiiQ2dFD+8Dz65y4K7/uUEqGg=="
+  "resolved" "https://registry.npmjs.org/react-native-dropdown-select-list/-/react-native-dropdown-select-list-2.0.5.tgz"
+  "version" "2.0.5"
+
 "react-native-flex-layout@^0.1.5":
   "integrity" "sha512-DrLir5Wl0RhgJXHeDBSaa1Y1LdpNuoz0PEe5E1T1+xVWt2DAz/r+1N8bnhtVkTKJE6WrH6jIH2hoe8kogR0X+w=="
   "resolved" "https://registry.npmjs.org/react-native-flex-layout/-/react-native-flex-layout-0.1.5.tgz"
@@ -5513,6 +5532,13 @@
   "integrity" "sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg=="
   "resolved" "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
   "version" "1.3.1"
+
+"react-native-modal-datetime-picker@^17.1.0":
+  "integrity" "sha512-jfTwfaCLtBffYbQ+pOGFLM+J5HmUh3vb9rT0JrrQPjxzecdc8pNYreB1c96+mVuq8bDCvaCdIeuEsslTqLJL0Q=="
+  "resolved" "https://registry.npmjs.org/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-17.1.0.tgz"
+  "version" "17.1.0"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-native-modal@^13.0.1":
   "integrity" "sha512-UB+mjmUtf+miaG/sDhOikRfBOv0gJdBU2ZE1HtFWp6UixW9jCk/bhGdHUgmZljbPpp0RaO/6YiMmQSSK3kkMaw=="

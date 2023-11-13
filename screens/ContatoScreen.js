@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity, Linking } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, Linking, ScrollView } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
-import { AppBar, IconButton } from "@react-native-material/core"; // Correção na importação
-import { MaterialCommunityIcons as Icon } from "@expo/vector-icons"; // Correção na importação
+import { AppBar, IconButton } from '@react-native-material/core';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { SelectList } from 'react-native-dropdown-select-list';
 
 const Stack = createStackNavigator();
 
-function formatTelefone(Telefone) {
-  const cleanedNumeroTelefone = Telefone.replace(/\D/g, '');
-  const formattedNumeroTelefone = `(${cleanedNumeroTelefone.substring(0, 2)}) ${cleanedNumeroTelefone.substring(2, 7)} - ${cleanedNumeroTelefone.substring(7, 11)}`;
-  return formattedNumeroTelefone;
+function formatTelefone(telefone) {
+  return telefone.replace(/\D/g, '').replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2 - $3');
 }
 
 function formatDate(data) {
-  const cleanedData = data.replace(/\D/g, '');
-  const formattedData = `${cleanedData.substring(0, 2)}/${cleanedData.substring(2, 4)}/${cleanedData.substring(4, 8)}`;
-  return formattedData;
+  return data.replace(/\D/g, '').replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
 }
 
 export function AppNavigator() {
@@ -36,20 +33,21 @@ export default function HomeScreen() {
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
+  const [curso, setCurso] = useState('');
 
   const handleVoltarClick = () => {
     navigation.goBack();
-  }
+  };
 
   const handleInscricaoPress = () => {
-    const mensagem = `Nome: ${nome}%0AEmail: ${email}%0ACelular: ${celular}%0AData de Nascimento: ${dataNascimento}`;
+    const mensagem = `Olá! Meu nome é ${nome}, gostaria de mais informações sobre o ${curso} e inscrição.  `;
     Linking.openURL(`https://api.whatsapp.com/send?phone=+556133515476&text=${mensagem}`);
   };
 
   const appBarProps = {
-    style: { backgroundColor: "#0CC1EE", height: 80 },
+    style: { backgroundColor: '#0CC1EE', height: 80 },
     title: (
-      <View style={{ alignItems: 'center', paddingTop: 100, flexDirection: 'row-reverse', justifyContent: 'space-between'}}>
+      <View style={{ alignItems: 'center', paddingTop: 100, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
         <Image
           source={require('../img/appbar_image.png')}
           style={{ width: 200, height: 50, resizeMode: 'contain', marginRight: 80 }}
@@ -60,98 +58,103 @@ export default function HomeScreen() {
     ),
   };
 
+  const dataSelectList = [
+    { key: '1', value: 'Curso Iniciante Mobile' },
+    { key: '2', value: 'Curso Intermediário Mobile' },
+    { key: '3', value: 'Curso de Software Mobile' },
+  ];
+
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <AppBar {...appBarProps} />
 
-      {/* Conteúdo da página */}
-      <View style={{ padding: 20, paddingTop: 25}}>
-        <Text style={{fontSize: 20, paddingBottom: 5}}>Nome:</Text>
+      <ScrollView style={{ flex: 1, padding: 16 }}>
+        <Text>Nome:</Text>
         <TextInput
-          style={{
-            width: 365,
-            height: 50,
-            borderRadius: 100,
-            borderWidth: 1,
-            borderColor: 'gray',
-            paddingLeft: 10,
-            marginBottom: 16,
-          }}
+          style={styles.input}
           placeholder="Ex: Mark Bryan"
           onChangeText={setNome}
           value={nome}
         />
 
-        <Text style={{fontSize: 20, paddingBottom: 5}}>Email:</Text>
+        <Text>Email:</Text>
         <TextInput
-          style={{
-            width: 365,
-            height: 50,
-            borderRadius: 100,
-            borderWidth: 1,
-            borderColor: 'gray',
-            paddingLeft: 10,
-            marginBottom: 16,
-          }}
+          style={styles.input}
           placeholder="Ex: name@domain.com"
           onChangeText={setEmail}
           value={email}
         />
 
-        <Text style={{fontSize: 20, paddingBottom: 5}}>Celular:</Text>
+        <Text>Celular:</Text>
         <TextInput
-          style={{
-            width: 365,
-            height: 50,
-            borderRadius: 100,
-            borderWidth: 1,
-            borderColor: 'gray',
-            paddingLeft: 10,
-            marginBottom: 16,
-          }}
+          style={styles.input}
           placeholder="Ex: (XX) XXXXX - XXXX"
           onChangeText={(text) => {
-            // Formata o número de telefone enquanto o usuário digita
             const formattedPhoneNumber = formatTelefone(text);
             setCelular(formattedPhoneNumber);
           }}
           value={celular}
         />
 
-        <Text style={{fontSize: 20, paddingBottom: 5}}>Data de Nascimento:</Text>
+        <Text>Data de Nascimento:</Text>
         <TextInput
-          style={{
-            width: 365,
-            height: 50,
-            borderRadius: 100,
-            borderWidth: 1,
-            borderColor: 'gray',
-            paddingLeft: 10,
-            marginBottom: 16,
-          }}
+          style={styles.input}
           placeholder="Ex: 10/05/2000"
           onChangeText={(text) => {
-            // Formata a data conforme necessário
             const formattedDate = formatDate(text);
             setDataNascimento(formattedDate);
           }}
           value={dataNascimento}
         />
 
+        <Text>Curso</Text>
+        <SelectList
+          setSelected={(val) => setCurso(val)}
+          data={dataSelectList}
+          save="value"
+          style={styles.input}
+        />
+      </ScrollView>
+
+      <ScrollView
+      style= {styles.scrollbtn}>
         <TouchableOpacity
-          style={{
-            backgroundColor: "rgb(13, 192, 239)",
-            paddingVertical: 15,
-            paddingHorizontal: 125,
-            borderRadius: 30,
-            alignSelf: "center",
-            marginTop: 20,
-          }}
+          style={styles.button}
           onPress={handleInscricaoPress}
         >
-          <Text style={{ color: "white", textAlign: "center", fontSize: 20, fontWeight: 'bold' }}>Inscreva-se</Text>
+          <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: 25 }}>Inscreva-se</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 }
+
+const styles = {
+  input: {
+    width: 380,
+    height: 40,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'gray',
+    paddingLeft: 10,
+    marginBottom: 16,
+  },
+  button: {
+    backgroundColor: '#00FF4C',
+    paddingVertical: 10,
+    paddingHorizontal: 125,
+    borderRadius: 30,
+    marginBottom: 20,
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 5)',
+     shadowOffset: { width: 0, height: 4 }, 
+    shadowRadius: 6,
+     shadowOpacity: 1,
+     elevation: 5,
+  },
+  scrollbtn: {
+    position:'flex',
+    bottom: 1,
+    paddingTop: 10,
+  }
+};
