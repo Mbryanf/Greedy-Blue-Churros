@@ -127,17 +127,15 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <Modal isVisible={isModalVisible} onBackdropPress={() => setIsModalVisible(false)}>
-        <View style={{padding: 10, borderRadius: 10, backgroundColor: "#0CC1EE", alignItems: 'center'}}>
-          <TouchableOpacity
-            onPress={() => {
+        <TouchableOpacity onPress={() => {
               setIsModalVisible(false);
               navigation.navigate('Contato');
             }}
-            style={{ paddingVertical: 5}}
-          >
-            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold'}}>Contato</Text>
-          </TouchableOpacity>
-        </View>
+            style={{  alignSelf: 'stretch'}}>
+          <View style={{padding: 10, borderRadius: 10, backgroundColor: "#0CC1EE", alignItems: 'center'}}>
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold'}}>Contato </Text>
+          </View>
+        </TouchableOpacity>
       </Modal>
     </View>
 
