@@ -116,15 +116,15 @@ export default function HomeScreen() {
         />
       </ScrollView>
 
-      <ScrollView
+      <View
       style= {styles.scrollbtn}>
         <TouchableOpacity
           style={styles.button}
           onPress={handleInscricaoPress}
         >
-          <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: 25 }}>Inscreva-se</Text>
+          <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>Inscreva-se</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     </View>
   );
 }
@@ -142,9 +142,8 @@ const styles = {
   button: {
     backgroundColor: '#00FF4C',
     paddingVertical: 10,
-    paddingHorizontal: 125,
+    paddingHorizontal: 1,
     borderRadius: 30,
-    marginBottom: 20,
     alignItems: 'center',
     shadowColor: 'rgba(0, 0, 0, 5)',
      shadowOffset: { width: 0, height: 4 }, 
@@ -156,5 +155,7 @@ const styles = {
     position:'flex',
     bottom: 1,
     paddingTop: 10,
+    margin:20,
+
   }
 };
