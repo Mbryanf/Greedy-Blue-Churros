@@ -66,13 +66,13 @@ export default function HomeScreen({ navigation }) {
     },
     {
       title: 'Curso Intermediário Mobile',
-      imageSource: require('../img/image3.png'),
+      imageSource: require('../img/card3.png'),
       navigation: navigation,
       screenName: 'CursoIntermediario',
     },
     {
       title: 'Curso de Software Mobile',
-      imageSource: require('../img/image2.png'),
+      imageSource: require('../img/card2.png'),
       navigation: navigation,
       screenName: 'CursoSoftware',
     },
