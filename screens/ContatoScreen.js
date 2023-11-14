@@ -27,7 +27,7 @@ export function AppNavigator() {
   );
 }
 
-export default function HomeScreen() {
+export default function ContatoScreen() {
   const navigation = useNavigation();
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');

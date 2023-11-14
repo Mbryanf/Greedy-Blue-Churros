@@ -25,8 +25,6 @@ const CursoIniScreen = ({ navigation }) => {
             style={{ width: 200, height: 50, resizeMode: 'contain' }}
           />
         </View>
-        {/* IconButton invisível e não clicável */}
-        <IconButton icon={<Icon name="magnify" style={styles.magnify} />} />
       </View>
 
       {/* Banner com a imagem do curso */}

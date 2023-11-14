@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, ScrollView, Button, Linking } from 'react-native';
+import { View, Image, StyleSheet, Text, ScrollView, Button } from 'react-native';
 import { IconButton } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
@@ -25,8 +25,6 @@ const CursoInterScreen = ({ navigation }) => {
             style={{ width: 200, height: 50, resizeMode: 'contain' }}
           />
         </View>
-        {/* IconButton invisível e não clicável */}
-        <IconButton icon={<Icon name="magnify" style={styles.magnify} />} />
       </View>
 
       {/* Banner com a imagem do curso */}
