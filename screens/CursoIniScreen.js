@@ -18,7 +18,7 @@ const CursoIniScreen = ({ navigation }) => {
     <View style={styles.container}>
       {/* Navbar */}
       <View style={styles.navbar}>
-        <IconButton icon={<Icon name="arrow-left" style={{ marginLeft: 10 }} />} onPress={handleVoltarClick} />
+        <IconButton icon={<Icon name="arrow-left" size={23} />} onPress={handleVoltarClick} />
         <View style={{ alignItems: 'center' }}>
           <Image
             source={appBarImage}

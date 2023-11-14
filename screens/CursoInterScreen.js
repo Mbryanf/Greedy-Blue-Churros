@@ -4,7 +4,7 @@ import { IconButton } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 const CursoInterScreen = ({ navigation }) => {
-  const bannerImage = require('../img/image2.png'); // Certifique-se de substituir 'nome_da_imagem.jpg' pelo nome real da sua imagem
+  const bannerImage = require('../img/image3.png'); // Certifique-se de substituir 'nome_da_imagem.jpg' pelo nome real da sua imagem
   const appBarImage = require('../img/appbar_image.png'); // Certifique-se de substituir 'appBarImage.png' pelo nome real da sua imagem
   const handleVoltarClick = () => {
     navigation.goBack();
@@ -18,7 +18,7 @@ const CursoInterScreen = ({ navigation }) => {
     <View style={styles.container}>
       {/* Navbar */}
       <View style={styles.navbar}>
-        <IconButton icon={<Icon name="arrow-left" style={{ marginLeft: 10 }} />} onPress={handleVoltarClick} />
+        <IconButton icon={<Icon name="arrow-left" size={23} />} onPress={handleVoltarClick} />
         <View style={{ alignItems: 'center' }}>
           <Image
             source={appBarImage}

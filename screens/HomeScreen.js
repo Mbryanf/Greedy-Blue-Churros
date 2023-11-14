@@ -4,7 +4,6 @@ import { AppBar, IconButton } from '@react-native-material/core';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import Modal from 'react-native-modal';
 import Carousel from 'react-native-snap-carousel';
-import { setStatusBarHidden } from "expo-status-bar";
 
 const CourseCard = ({ title, imageSource, navigation, screenName }) => (
   <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
@@ -40,21 +39,22 @@ export default function HomeScreen({ navigation }) {
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: (
-        <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+      headerTitle: () => (
+        <View style={{ alignItems: 'center' }}>
           <Image
             source={appBarImage}
-            style={{ width: 200, height: 40, resizeMode: 'contain', justifyContent: 'space-between' }}
+            style={{ width: 280, height: 50, resizeMode: 'contain', justifyContent: 'center' }}
           />
         </View>
       ),
       headerLeft: () => (
-        <IconButton icon={(props) => <Icon name="menu" {...props} />} onPress={() => setIsModalVisible(true)} />
+        <IconButton icon={() => <Icon name="menu" size={23} />} onPress={() => setIsModalVisible(true)} />
       ),
       headerStyle: {
         backgroundColor: "#0CC1EE"
-      },  
+      },
     });
+    
   }, [navigation]);
 
   const carouselItems = [
@@ -66,13 +66,13 @@ export default function HomeScreen({ navigation }) {
     },
     {
       title: 'Curso Intermediário Mobile',
-      imageSource: require('../img/card3.png'),
+      imageSource: require('../img/card2.png'),
       navigation: navigation,
       screenName: 'CursoIntermediario',
     },
     {
       title: 'Curso de Software Mobile',
-      imageSource: require('../img/card2.png'),
+      imageSource: require('../img/card3.png'),
       navigation: navigation,
       screenName: 'CursoSoftware',
     },
