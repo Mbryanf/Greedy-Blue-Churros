@@ -4,8 +4,8 @@ import { IconButton } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 const CursoIniScreen = ({ navigation }) => {
-  const bannerImage = require('../img/image1.png'); // Certifique-se de substituir 'nome_da_imagem.jpg' pelo nome real da sua imagem
-  const appBarImage = require('../img/appbar_image.png'); // Certifique-se de substituir 'appBarImage.png' pelo nome real da sua imagem
+  const bannerImage = require('../img/image1.png'); 
+  const appBarImage = require('../img/appbar_image.png'); 
   const handleVoltarClick = () => {
     navigation.goBack();
   };
