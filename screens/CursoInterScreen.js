@@ -39,7 +39,7 @@ const CursoInterScreen = ({ navigation }) => {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <Text style={styles.courseDescription}>
         Esse curso é indicado para o técnico que já faz manutenção básica e  não sabe  resolver defeitos  que exigem uma análise mais detalhada
-        do circuito elétrico; Manuseio de ferramentas de bancada e troca de CI's
+        do circuito elétrico; Manuseio de ferramentas de bancada e troca de CI's.
         </Text>
         <Text style={styles.courseTopic}>
           Aprofundamento de conhecimentos técnicos
