@@ -17,6 +17,11 @@ function formatDate(data) {
   return data.replace(/\D/g, '').replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
 }
 
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
 export function AppNavigator() {
   return (
     <NavigationContainer>
@@ -32,6 +37,7 @@ export default function ContatoScreen() {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [celular, setCelular] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
   const [curso, setCurso] = useState('');
@@ -41,6 +47,11 @@ export default function ContatoScreen() {
   };
 
   const handleInscricaoPress = () => {
+    if (!validateEmail(email)) {
+      setEmailError('Por favor, insira um email válido.');
+      return;
+    }
+
     Alert.alert(
       'Confirmação',
       `Olá ${nome}! Você está sendo redirecionado para o WhatsApp para mais informações sobre a inscrição. \n\nDeseja Continuar?`,
@@ -49,7 +60,7 @@ export default function ContatoScreen() {
           text: 'Cancelar',
           style: 'cancel',
         },
-        { text: 'Continuar', onPress: () => abrirWhatsApp() },
+        { text: 'Continuar', onPress: abrirWhatsApp },
       ],
       { cancelable: false }
     );
@@ -64,7 +75,7 @@ export default function ContatoScreen() {
     style: { backgroundColor: '#0CC1EE', height: 80 },
     title: (
       <View style={{ alignItems: 'center', paddingTop: 100, flexDirection: 'row' }}>
-        <IconButton icon = {() => <Icon name="arrow-left" size={23} />} onPress={handleVoltarClick} />
+        <IconButton icon={() => <Icon name="arrow-left" size={23} />} onPress={handleVoltarClick} />
         <Image
           source={require('../img/appbar_image.png')}
           style={{ width: 280, height: 50, resizeMode: 'contain' }}
@@ -105,79 +116,83 @@ export default function ContatoScreen() {
         <TextInput
           style={styles.input}
           placeholder="Ex: name@domain.com"
-          onChangeText={setEmail}
+          onChangeText={(text) => {
+            setEmail(text);
+            setEmailError(''); // Limpa o erro quando o usuário começa a digitar novamente
+          }}
           value={email}
         />
+        {emailError ? <Text style={{ color: 'red' }}>{emailError}</Text> : null}
 
-        <Text>Celular:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Ex: (XX) XXXXX - XXXX"
-          onChangeText={(text) => {
-            const formattedPhoneNumber = formatTelefone(text);
-            setCelular(formattedPhoneNumber);
-          }}
-          value={celular}
-        />
+          <Text>Celular:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Ex: (XX) XXXXX - XXXX"
+            onChangeText={(text) => {
+              const formattedPhoneNumber = formatTelefone(text);
+              setCelular(formattedPhoneNumber);
+            }}
+            value={celular}
+          />
 
-        <Text>Data de Nascimento:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Ex: 10/05/2000"
-          onChangeText={(text) => {
-            const formattedDate = formatDate(text);
-            setDataNascimento(formattedDate);
-          }}
-          value={dataNascimento}
-        />
+          <Text>Data de Nascimento:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Ex: 10/05/2000"
+            onChangeText={(text) => {
+              const formattedDate = formatDate(text);
+              setDataNascimento(formattedDate);
+            }}
+            value={dataNascimento}
+          />
 
-        <Text>Curso</Text>
-        <SelectList
-          setSelected={(val) => setCurso(val)}
-          data={dataSelectList}
-          save="value"
-          style={styles.input}
-        />
-      </ScrollView>
+          <Text>Curso</Text>
+          <SelectList
+            setSelected={(val) => setCurso(val)}
+            data={dataSelectList}
+            save="value"
+            style={styles.input}
+          />
+        </ScrollView>
 
-      <View style={styles.scrollbtn}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleInscricaoPress}
-        >
-          <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>Inscreva-se</Text>
-        </TouchableOpacity>
+        <View style={styles.scrollbtn}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleInscricaoPress}
+          >
+            <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>Inscreva-se</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  );
-}
-
-const styles = {
-  input: {
-    alignSelf: 'stretch',
-    height: 40,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'gray',
-    paddingLeft: 10,
-    marginBottom: 16,
-  },
-  button: {
-    backgroundColor: '#00FF4C',
-    paddingVertical: 10,
-    paddingHorizontal: 1,
-    borderRadius: 30,
-    alignItems: 'center',
-    shadowColor: 'rgba(0, 0, 0, 5)',
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 6,
-    shadowOpacity: 1,
-    elevation: 5,
-  },
-  scrollbtn: {
-    position: 'flex',
-    bottom: 1,
-    paddingTop: 10,
-    margin: 20,
+    );
   }
-};
+
+  const styles = {
+    input: {
+      alignSelf: 'stretch',
+      height: 40,
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: 'gray',
+      paddingLeft: 10,
+      marginBottom: 16,
+    },
+    button: {
+      backgroundColor: '#00FF4C',
+      paddingVertical: 10,
+      paddingHorizontal: 1,
+      borderRadius: 30,
+      alignItems: 'center',
+      shadowColor: 'rgba(0, 0, 0, 5)',
+      shadowOffset: { width: 0, height: 4 },
+      shadowRadius: 6,
+      shadowOpacity: 1,
+      elevation: 5,
+    },
+    scrollbtn: {
+      position: 'flex',
+      bottom: 1,
+      paddingTop: 10,
+      margin: 20,
+    }
+  };
