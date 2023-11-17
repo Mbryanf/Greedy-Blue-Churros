@@ -15,17 +15,21 @@ const CursoInterScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+     <View style={styles.container}>
       {/* Navbar */}
       <View style={styles.navbar}>
-        <IconButton icon={<Icon name="arrow-left" size={23} />} onPress={handleVoltarClick} />
-        <View style={{ alignItems: 'center' }}>
+        <View style={styles.leftIcon}>
+          <IconButton icon={<Icon name="arrow-left" size={20} />} onPress={handleVoltarClick} />
+        </View>
+        <View style={styles.centerComponent}>
           <Image
             source={appBarImage}
-            style={{ width: 200, height: 50, resizeMode: 'contain' }}
+            style={{ width: 200, height: 50, resizeMode: 'contain', alignSelf: 'center' }}
           />
         </View>
+        <IconButton icon={<Icon name="magnify" style={styles.magnify} />} />
       </View>
+
 
       {/* Banner com a imagem do curso */}
       <Image
@@ -98,8 +102,8 @@ const styles = StyleSheet.create({
   },
   navbar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#0CC1EE',
     paddingTop: 30,
     paddingBottom: 10,

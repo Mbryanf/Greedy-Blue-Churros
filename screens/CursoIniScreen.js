@@ -4,8 +4,8 @@ import { IconButton } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 const CursoIniScreen = ({ navigation }) => {
-  const bannerImage = require('../img/image1.png'); 
-  const appBarImage = require('../img/appbar_image.png'); 
+  const bannerImage = require('../img/image1.png');
+  const appBarImage = require('../img/appbar_image.png');
   const handleVoltarClick = () => {
     navigation.goBack();
   };
@@ -22,9 +22,10 @@ const CursoIniScreen = ({ navigation }) => {
         <View style={{ alignItems: 'center' }}>
           <Image
             source={appBarImage}
-            style={{ width: 200, height: 50, resizeMode: 'contain' }}
+            style={{ width: 200, height: 50, resizeMode: 'contain', alignSelf: 'center', marginHorizontal: "auto", marginRight: "10%" }}
           />
         </View>
+        <IconButton icon={<Icon name="magnify" style={styles.magnify} />} />
       </View>
 
       {/* Banner com a imagem do curso */}
@@ -42,7 +43,7 @@ const CursoIniScreen = ({ navigation }) => {
           Motivos para fazer o curso iniciante de manunteção
         </Text>
         <Text style={styles.courseDescription}>
-          Montar uma assistência técnica em smartphone é uma excelente oportunidade de negócio pra quem tem o sonho de montar o seu próprio negócio ou quer uma profissão rentável isso  porque nenhuma atividade humana hoje está isenta do uso do smartphone e esses pequenos aparelhos são muito fáceis de estragar.  
+          Montar uma assistência técnica em smartphone é uma excelente oportunidade de negócio pra quem tem o sonho de montar o seu próprio negócio ou quer uma profissão rentável isso  porque nenhuma atividade humana hoje está isenta do uso do smartphone e esses pequenos aparelhos são muito fáceis de estragar.
         </Text>
         <Text style={styles.courseTopic}>
           Baixo investimento inicial e prazo curto de retorno do investimento
@@ -53,21 +54,21 @@ const CursoIniScreen = ({ navigation }) => {
         <Text style={styles.courseTopic}>
           Alta demanda
         </Text>
-        <Text style= {styles.courseDescription}>
+        <Text style={styles.courseDescription}>
           Com a popularização dos smartphones e a grande quantidade de pessoas que possui um dispositivo móvel a procura por serviços de assistência técnica tem aumentado consideravelmente isso faz com que um profissional bem qualificado tenha grande potencial de sucesso.
         </Text>
         <Text style={styles.courseTopic}>
           Fidelização
         </Text>
-        <Text style= {styles.courseDescription}>
+        <Text style={styles.courseDescription}>
           Quando uma pessoa encontra um serviço de qualidade em assistência técnica para o seu smartphone é muito provável que ela retorne em caso de necessidade e ainda indique para outras pessoas gerando assim uma rede de clientes fiéis.
         </Text>
         <Text style={styles.courseTopic}>
           Margem de lucro e diversificação de serviços
         </Text>
-        <Text style= {styles.courseDescription}>
+        <Text style={styles.courseDescription}>
           A margem de lucro em serviços de assistência técnica é bastante atrativa podendo gerar uma boa rentabilidade e além disso a possibilidade de venda de acessórios e produtos complementares aumentam o faturamento.
-        
+
         </Text>
       </ScrollView>
 
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   courseDescription: {
     padding: 15,
     textAlign: 'center',
-    fontSize:20
+    fontSize: 20
   },
   buttonContainer: {
     margin: 10,

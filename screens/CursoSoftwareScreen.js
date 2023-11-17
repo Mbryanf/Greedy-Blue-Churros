@@ -25,6 +25,7 @@ const CursoSoftwareScreen = ({ navigation }) => {
             style={{ width: 200, height: 50, resizeMode: 'contain' }}
           />
         </View>
+        <IconButton icon={<Icon name="magnify" style={styles.magnify} />} />
       </View>
 
       {/* Banner com a imagem do curso */}
